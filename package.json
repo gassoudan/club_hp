@@ -2,7 +2,7 @@
   "name": "club_hp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gassoudan.github.io//club_hp",
+  "homepage": "https://gassoudan.github.io/club_hp",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
