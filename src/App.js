@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
-function App() {
+import Header from './Header';
+
+import Home from './Home';
+import Record from './Record';
+import Contact from './Contact';
+import Recruit from './Recruit';
+import NotFound from './NotFound';
+
+function MainApp() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <AppWithHeader />
+    </Router>
+  );
+}
+
+function AppWithHeader() {
+  const location = useLocation();
+  const isNotFound = location.pathname !== '/' && location.pathname !== '/record' && location.pathname !== '/recruit' && location.pathname !== '/contact';
+
+  return (
+    <div>
+      {!isNotFound && <Header />}
+      <Routes>
+        {/* ルートを設定 */}
+        <Route exact path="/" element={<Home />} />
+        <Route path="/record" element={<Record />} />
+        <Route path="/recruit" element={<Recruit />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* 存在しないルートに対するフォールバック */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+export default MainApp;
