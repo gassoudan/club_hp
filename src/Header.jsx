@@ -1,35 +1,94 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
-import { styled } from '@mui/system';
+import { styled, useTheme } from '@mui/system';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // スタイルを定義
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
 });
 
+const StyledTypography = styled(Typography)({
+  flexGrow: 1,
+});
+
+const StyledButton = styled(Button)({
+  marginLeft: '20px',
+});
+
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+  '&.MuiListItem-button': {
+    color: theme.palette.text.primary,
+  },
+}));
+
 function Header() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 画面サイズがsm以下かどうかを判定
+
+  const toggleDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
+
+  const menuList = (
+    <List>
+      <StyledListItem button component={Link} to="/" onClick={toggleDrawer(false)}>
+        <ListItemText primary="ホーム" />
+      </StyledListItem>
+      <StyledListItem button component={Link} to="/record" onClick={toggleDrawer(false)}>
+        <ListItemText primary="過去の演奏" />
+      </StyledListItem>
+      <StyledListItem button component={Link} to="/recruit" onClick={toggleDrawer(false)}>
+        <ListItemText primary="団員募集" />
+      </StyledListItem>
+      <StyledListItem button component={Link} to="/contact" onClick={toggleDrawer(false)}>
+        <ListItemText primary="お問い合わせ" />
+      </StyledListItem>
+    </List>
+  );
+
   return (
-    <AppBar position="static" color="primary">
-      <StyledToolbar>
-        <Typography variant="h6">
-          関西学院大学 室内合奏団
-        </Typography>
-        <Button component={Link} to="/" color="inherit">
-          ホーム
-        </Button>
-        <Button component={Link} to="/record" color="inherit">
-          過去の演奏
-        </Button>
-        <Button component={Link} to="/recruit" color="inherit">
-          団員募集
-        </Button>
-        <Button component={Link} to="/contact" color="inherit">
-          お問い合わせ
-        </Button>
-      </StyledToolbar>
-    </AppBar>
+    <>
+      <AppBar position="static" color="primary">
+        <StyledToolbar>
+          <StyledTypography variant="h6">
+            関西学院大学 室内合奏団
+          </StyledTypography>
+          {isMobile ? (
+            <>
+              <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+                <MenuIcon />
+              </IconButton>
+              <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+                {menuList}
+              </Drawer>
+            </>
+          ) : (
+            <div>
+              <StyledButton component={Link} to="/" color="inherit">
+                ホーム
+              </StyledButton>
+              <StyledButton component={Link} to="/record" color="inherit">
+                過去の演奏
+              </StyledButton>
+              <StyledButton component={Link} to="/recruit" color="inherit">
+                団員募集
+              </StyledButton>
+              <StyledButton component={Link} to="/contact" color="inherit">
+                お問い合わせ
+              </StyledButton>
+            </div>
+          )}
+        </StyledToolbar>
+      </AppBar>
+    </>
   );
 }
 

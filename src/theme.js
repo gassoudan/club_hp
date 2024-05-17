@@ -10,6 +10,11 @@ const theme = createTheme({
     },
     background: {
       default: '#c4c49b', // 全体の背景色
+      paper: '#ffffff',  // ボックスの背景色
+    },
+    text: {
+      primary: '#464B3C', // テキストの色
+      secondary: '#B5B282', // セカンダリテキストの色
     },
   },
   typography: {
