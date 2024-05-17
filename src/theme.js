@@ -8,12 +8,19 @@ const theme = createTheme({
     secondary: {
       main: '#B5B282', // セカンダリカラー
     },
+    background: {
+      default: '#c4c49b', // 全体の背景色
+    },
   },
   typography: {
     h6: {
       fontSize: 18,
       fontWeight: 'bold',
       color: '#B5B282', // タイトルの色
+    },
+    body1: {
+      fontSize: 16,
+      color: '#464B3C', // 本文テキストの色
     },
   },
   components: {
