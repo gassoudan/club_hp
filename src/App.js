@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import theme from './theme';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 import Header from './Header';
 
@@ -10,9 +13,12 @@ import NotFound from './NotFound';
 
 function MainApp() {
   return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
     <Router>
       <AppWithHeader />
     </Router>
+    </ThemeProvider>
   );
 }
 
