@@ -24,17 +24,17 @@ function MainApp() {
 
 function AppWithHeader() {
   const location = useLocation();
-  const isNotFound = location.pathname !== '/' && location.pathname !== '/record' && location.pathname !== '/recruit' && location.pathname !== '/contact';
+  const isNotFound = location.pathname !== '/club_hp' && location.pathname !== '/club_hp/record' && location.pathname !== '/club_hp/recruit' && location.pathname !== '/club_hp/contact';
 
   return (
     <div>
       {!isNotFound && <Header />}
       <Routes>
         {/* ルートを設定 */}
-        <Route exact path="/" element={<Home />} />
-        <Route path="/record" element={<Record />} />
-        <Route path="/recruit" element={<Recruit />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route exact path="/club_hp/" element={<Home />} />
+        <Route path="/club_hp/record" element={<Record />} />
+        <Route path="/club_hp/recruit" element={<Recruit />} />
+        <Route path="/club_hp/contact" element={<Contact />} />
         {/* 存在しないルートに対するフォールバック */}
         <Route path="*" element={<NotFound />} />
       </Routes>

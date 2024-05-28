@@ -39,16 +39,16 @@ function Header() {
 
   const menuList = (
     <List>
-      <StyledListItem button component={Link} to="/" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to="/club_hp" onClick={toggleDrawer(false)}>
         <ListItemText primary="ホーム" />
       </StyledListItem>
-      <StyledListItem button component={Link} to="/record" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to="/club_hp/record" onClick={toggleDrawer(false)}>
         <ListItemText primary="過去の演奏" />
       </StyledListItem>
-      <StyledListItem button component={Link} to="/recruit" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to="/club_hp/recruit" onClick={toggleDrawer(false)}>
         <ListItemText primary="団員募集" />
       </StyledListItem>
-      <StyledListItem button component={Link} to="/contact" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to="/club_hp/contact" onClick={toggleDrawer(false)}>
         <ListItemText primary="お問い合わせ" />
       </StyledListItem>
     </List>
@@ -72,16 +72,16 @@ function Header() {
             </>
           ) : (
             <div>
-              <StyledButton component={Link} to="/" color="inherit">
+              <StyledButton component={Link} to="/club_hp" color="inherit">
                 ホーム
               </StyledButton>
-              <StyledButton component={Link} to="/record" color="inherit">
+              <StyledButton component={Link} to="/club_hp/record" color="inherit">
                 過去の演奏
               </StyledButton>
-              <StyledButton component={Link} to="/recruit" color="inherit">
+              <StyledButton component={Link} to="/club_hp/recruit" color="inherit">
                 団員募集
               </StyledButton>
-              <StyledButton component={Link} to="/contact" color="inherit">
+              <StyledButton component={Link} to="/club_hp/contact" color="inherit">
                 お問い合わせ
               </StyledButton>
             </div>

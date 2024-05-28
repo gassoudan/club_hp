@@ -14,7 +14,7 @@ function NotFound() {
       <Typography variant="body1" gutterBottom>
         Sorry, the page you are looking for does not exist.
       </Typography>
-      <Button variant="contained" color="primary" component={Link} to="/">
+      <Button variant="contained" color="primary" component={Link} to="/club_hp">
         Go to Home
       </Button>
     </Container>
