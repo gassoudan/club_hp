@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import { styled, useTheme } from '@mui/system';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import paths from './utils/paths';
 
 // スタイルを定義
 const StyledToolbar = styled(Toolbar)({
@@ -39,16 +40,16 @@ function Header() {
 
   const menuList = (
     <List>
-      <StyledListItem button component={Link} to="/club_hp" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to={paths[1]} onClick={toggleDrawer(false)}>
         <ListItemText primary="ホーム" />
       </StyledListItem>
-      <StyledListItem button component={Link} to="/club_hp/record" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to={paths[2]} onClick={toggleDrawer(false)}>
         <ListItemText primary="過去の演奏" />
       </StyledListItem>
-      <StyledListItem button component={Link} to="/club_hp/recruit" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to={paths[3]} onClick={toggleDrawer(false)}>
         <ListItemText primary="団員募集" />
       </StyledListItem>
-      <StyledListItem button component={Link} to="/club_hp/contact" onClick={toggleDrawer(false)}>
+      <StyledListItem button component={Link} to={paths[4]} onClick={toggleDrawer(false)}>
         <ListItemText primary="お問い合わせ" />
       </StyledListItem>
     </List>
@@ -72,16 +73,16 @@ function Header() {
             </>
           ) : (
             <div>
-              <StyledButton component={Link} to="/club_hp" color="inherit">
+              <StyledButton component={Link} to={paths[1]} color="inherit">
                 ホーム
               </StyledButton>
-              <StyledButton component={Link} to="/club_hp/record" color="inherit">
+              <StyledButton component={Link} to={paths[2]} color="inherit">
                 過去の演奏
               </StyledButton>
-              <StyledButton component={Link} to="/club_hp/recruit" color="inherit">
+              <StyledButton component={Link} to={paths[3]} color="inherit">
                 団員募集
               </StyledButton>
-              <StyledButton component={Link} to="/club_hp/contact" color="inherit">
+              <StyledButton component={Link} to={paths[4]} color="inherit">
                 お問い合わせ
               </StyledButton>
             </div>
