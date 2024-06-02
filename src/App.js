@@ -31,7 +31,7 @@ function AppWithHeader() {
       {!isNotFound && <Header />}
       <Routes>
         {/* ルートを設定 */}
-        <Route exact path="/club_hp/" element={<Home />} />
+        <Route exact path="/club_hp" element={<Home />} />
         <Route path="/club_hp/record" element={<Record />} />
         <Route path="/club_hp/recruit" element={<Recruit />} />
         <Route path="/club_hp/contact" element={<Contact />} />
