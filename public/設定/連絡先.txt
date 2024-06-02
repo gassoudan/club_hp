@@ -1,0 +1,2 @@
+代表メール=sample@gmail.com
+広報メール=sanplesample@gmail.com
