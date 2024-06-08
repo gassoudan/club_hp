@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import fetchData from './utils/fetchData';
+import { Container } from '@mui/material';
+import BoxText from './common/BoxText';
 
 export default function Contact() {
   const [representativeEmail, setRepresentativeEmail] = useState('');
@@ -22,11 +24,13 @@ export default function Contact() {
     setData();
   }, []);
 
+  const content = "お問い合わせは以下のメールアドレスにお願いします。\n" + 
+    "代表メールアドレス:" + representativeEmail + "\n" +
+    "広報メールアドレス:" + prEmail + "\n";
+
   return (
-    <div>
-      <h1>連絡先</h1>
-      <p>代表メールアドレス: {representativeEmail}</p>
-      <p>広報メールアドレス: {prEmail}</p>
-    </div>
+    <Container>
+      <BoxText title="連絡先" content={content} />
+    </Container>
   );
 }
