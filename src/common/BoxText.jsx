@@ -17,8 +17,13 @@ export default function BoxText(props) {
         <Typography variant="h6" gutterBottom>
           {props.title}
         </Typography>
-        <Typography variant="body1" gutterBottom>
-          {props.content}
+        <Typography variant="body1" component="div" gutterBottom>
+          {props.content.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
         </Typography>
       </Box>
   )
