@@ -18,7 +18,7 @@ const CustomList = ({ title, items }) => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" sx={{marginTop:1, marginBottom:3}}>
           {title}
         </Typography>
         <Grid container spacing={1} justifyContent="center" alignItems="center">
