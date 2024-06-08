@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
+import TitleName from './common/TitleName';
 
 function Home() {
   return (
+    <>
     <Container>
       <Typography variant="h1" gutterBottom>
         ホームページ
@@ -36,7 +38,11 @@ function Home() {
           これは小さいサイズの本文テキストの例です。
         </Typography>
       </Box>
-    </Container>
+      
+      <TitleName title="ごあいさつ" />
+
+      </Container>
+    </>
   );
 }
 
